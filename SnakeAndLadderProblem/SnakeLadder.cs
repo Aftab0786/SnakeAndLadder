@@ -14,7 +14,8 @@ namespace SnakeAndLadderProblem
         public const int SNAKE = 1;
         public const int LADDER = 2;
         public int playerPosition = 0;
-
+        public const int Winning = 100;
+        public int Startpoint = 0;
         // method using random the position of player.
 
         Random rand = new Random();
@@ -60,15 +61,57 @@ namespace SnakeAndLadderProblem
                 case SNAKE:
                     this.playerPosition += SNAKE;
                     break;
-                    case LADDER:
+                case LADDER:
                     this.playerPosition += LADDER;
                     break;
-                    default:
+                default:
                     break;
             }
             Console.WriteLine("Player postion is: " + this.playerPosition);
 
         }
+        // UseCase-4 : Repeat till the Player reaches the winning position 100
 
+        public void StartGame()
+        {
+            Console.WriteLine(" Game Started ");
+            Console.WriteLine(" PlayerPosition :" + playerPosition);
+            Random random = new Random();
+
+            while (Startpoint < Winning)
+            {
+                int DieRolled = random.Next(1, 7);
+                int Option = random.Next(0, 3);
+                switch (Option)
+                {
+                    case NO_PLAY:
+                        Console.WriteLine(" No Play");
+                        break;
+                    case LADDER:
+                        Startpoint += DieRolled;
+                        Console.WriteLine(" Dice Rolls Number : +{0} ", DieRolled);
+                        Console.WriteLine(" Got Ladder : " + Startpoint);
+                        Console.WriteLine(" PlayerPosition : " + Startpoint);
+                        break;
+                    case SNAKE:
+                        Startpoint -= DieRolled;
+                        Console.WriteLine(" Dice Rolls Number : -{0} ", DieRolled);
+                        Console.WriteLine(" Snake Attack : " + Startpoint);
+
+                        if (Startpoint < 0)
+                        {
+                            Startpoint = 0;
+
+                        }
+                        Console.WriteLine(" PlayerPosition : " + Startpoint);
+                        break;
+                }
+                if (Startpoint >= Winning)
+                {
+                    Console.WriteLine("Playe won");
+                    break;
+                }
+            }
+        }
     }
 }

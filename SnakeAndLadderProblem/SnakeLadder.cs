@@ -30,12 +30,44 @@ namespace SnakeAndLadderProblem
             int roll = rand.Next(1, 7);
             return roll;
         }
-
+        // method to check the value of dice thrown.
         public void start()
         {
             int roll = this.dice();
             this.playerPosition = playerPosition + roll;
             Console.WriteLine("The value when dice is thrown: " + playerPosition);
+        }
+
+        //uc3 : option check play or not.
+
+        public int Roll()
+        {
+            int Roll = rand.Next(1, 7);
+            return Roll;
+        }
+
+        // method to check play or not
+
+        public void Rolling()
+        {
+            int Roll = this.Roll();
+            int check = rand.Next(0, 3);
+            switch (check)
+            {
+                case NO_PLAY:
+                    this.playerPosition += NO_PLAY;
+                    break;
+                case SNAKE:
+                    this.playerPosition += SNAKE;
+                    break;
+                    case LADDER:
+                    this.playerPosition += LADDER;
+                    break;
+                    default:
+                    break;
+            }
+            Console.WriteLine("Player postion is: " + this.playerPosition);
+
         }
 
     }

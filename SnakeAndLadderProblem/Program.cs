@@ -5,5 +5,6 @@ class program
     {
         SnakeLadder snakeLadder = new SnakeLadder();
         snakeLadder.play();
+        snakeLadder.start();
     }
 }

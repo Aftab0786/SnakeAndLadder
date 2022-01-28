@@ -8,7 +8,7 @@ namespace SnakeAndLadderProblem
 {
     public class SnakeLadder
     {
-        // uc1 checking player at initial position at zero.
+        // uc1 : checking player at initial position at zero.
 
         public const int NO_PLAY = 0;
         public const int SNAKE = 1;
@@ -23,5 +23,20 @@ namespace SnakeAndLadderProblem
         {
             Console.WriteLine("Initial player position: " + playerPosition);
         }
+        // UC2 : Random Dice Value between 1 to 6 
+
+        public int dice()
+        {
+            int roll = rand.Next(1, 7);
+            return roll;
+        }
+
+        public void start()
+        {
+            int roll = this.dice();
+            this.playerPosition = playerPosition + roll;
+            Console.WriteLine("The value when dice is thrown: " + playerPosition);
+        }
+
     }
 }

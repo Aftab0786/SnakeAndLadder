@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Welcome to Snake And Ladder Problem!");
+﻿using SnakeAndLadderProblem;
+class program
+{
+    static void Main(string[] args)
+    {
+        SnakeLadder snakeLadder = new SnakeLadder();
+        snakeLadder.play();
+    }
+}

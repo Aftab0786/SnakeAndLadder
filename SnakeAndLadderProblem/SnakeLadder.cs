@@ -16,6 +16,8 @@ namespace SnakeAndLadderProblem
         public int playerPosition = 0;
         public const int Winning = 100;
         public int Startpoint = 0;
+        public int standingPositionofPlayer = 0;
+
         // method using random the position of player.
 
         Random rand = new Random();
@@ -113,5 +115,44 @@ namespace SnakeAndLadderProblem
                 }
             }
         }
+        // UseCase-5 : Ensure the player gets to exact winning
+
+        public int DieRolling()
+        {
+            int roll = rand.Next(1, 7);
+            return roll;
+        }
+        public void PlayerCheck()
+        {
+            while (standingPositionofPlayer < Winning)
+            {
+                int dieRoll = this.DieRolling();
+                int option = rand.Next(0, 3);
+                switch (option)
+                {
+                    case NO_PLAY:
+                        break;
+                    case LADDER:
+                        this.standingPositionofPlayer += dieRoll;
+                        if (this.standingPositionofPlayer > Winning)
+                        {
+                            this.standingPositionofPlayer -= dieRoll;
+                        }
+                        break;
+                    case SNAKE:
+                        this.standingPositionofPlayer -= dieRoll;
+                        if (this.standingPositionofPlayer < Startpoint)
+                        {
+                            this.standingPositionofPlayer = Startpoint;
+                        }
+                        break;
+                }
+
+                Console.WriteLine("The standing Position of Player is :" + this.standingPositionofPlayer + " " + "with a roll of " + dieRoll);
+
+            }
+            Console.WriteLine("The Player wins the Game");
+        }
     }
 }
+

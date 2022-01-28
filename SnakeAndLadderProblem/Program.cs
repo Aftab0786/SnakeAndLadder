@@ -7,7 +7,8 @@ class program
         //snakeLadder.play();
         //snakeLadder.start();
         //snakeLadder.Rolling();
-        snakeLadder.StartGame();
+        //snakeLadder.StartGame();
+        snakeLadder.PlayerCheck();
         
     }
 }

@@ -17,6 +17,7 @@ namespace SnakeAndLadderProblem
         public const int Winning = 100;
         public int Startpoint = 0;
         public int standingPositionofPlayer = 0;
+        public int count = 0;
 
         // method using random the position of player.
 
@@ -115,7 +116,7 @@ namespace SnakeAndLadderProblem
                 }
             }
         }
-        // UseCase-5 : Ensure the player gets to exact winning
+        // UC6 : The Number Of Time Dice Was Rolled To Win The Game
 
         public int DieRolling()
         {
@@ -138,6 +139,8 @@ namespace SnakeAndLadderProblem
                         {
                             this.standingPositionofPlayer -= dieRoll;
                         }
+                        Console.WriteLine("Got Ladder");
+
                         break;
                     case SNAKE:
                         this.standingPositionofPlayer -= dieRoll;
@@ -145,13 +148,15 @@ namespace SnakeAndLadderProblem
                         {
                             this.standingPositionofPlayer = Startpoint;
                         }
+
+                        Console.WriteLine("Got Snake");
                         break;
                 }
-
+                count++;
                 Console.WriteLine("The standing Position of Player is :" + this.standingPositionofPlayer + " " + "with a roll of " + dieRoll);
-
             }
-            Console.WriteLine("The Player wins the Game");
+            Console.WriteLine("the number of time dice was rolled to win the game is : " + count);
+                Console.WriteLine("The Player wins the Game");
         }
     }
 }
